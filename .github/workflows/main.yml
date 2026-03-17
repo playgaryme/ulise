@@ -106,15 +106,3 @@ jobs:
             --debug
           echo "✅ Session completed"
         shell: bash
-
-      # ====================== ARTIFACTS ======================
-      - name: Upload screenshots & logs
-        if: always()                     # Upload even if job fails
-        uses: actions/upload-artifact@v4
-        with:
-          name: seleniumbase-output-${{ github.run_id }}
-          path: |
-            ./latest_logs/
-            *.png
-            *.log
-          retention-days: 1
